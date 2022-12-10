@@ -35,10 +35,13 @@
     background-color: #a7ebb1;
     color: white;
     text-align: center;
+    text-decoration: none;
 }
+.navbar-item:hover{background-color: red;}
 
 .container-cart{
-    width: 10%;
+    top: 25%;
+    right: 70%;
     display: flex;
     justify-content: center;
     align-items: center;

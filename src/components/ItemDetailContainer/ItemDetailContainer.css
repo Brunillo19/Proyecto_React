@@ -1,0 +1,9 @@
+.detail {
+    display: flex;
+}
+.detailText {
+    display: block;
+}
+.stock {
+    color: gray;
+}

@@ -1,6 +1,6 @@
 import { CartWidget } from "../CartWidget/CartWidget";
 import "./navBar.css";
-
+import {Link} from "react-router-dom"
 
 
 const NavBar = () => {
@@ -8,17 +8,18 @@ const NavBar = () => {
 
 return (
     <div className="navbar-container">
-      <div className="container-logo">
+      <Link to="/"className="container-logo">
         <img
           className="logo-navbar"
           src="https://res.cloudinary.com/dfbuxinmw/image/upload/v1669511154/sintitulo_yjyi3m.jpg"
           alt=""
         />
-      </div>
+      </Link>
       <ul className="navbar">
-        <li className="navbar-item">PCs</li>
-        <li className="navbar-item">Pantallas</li>
-        <li className="navbar-item">Periféricos</li>
+        <Link to="/" className="navbar-item">Inicio</Link>
+        <Link className="navbar-item" to="/category/PCs">PCs</Link>
+        <Link className="navbar-item" to="/category/Pantallas">Pantallas</Link>
+        <Link className="navbar-item" to="/category/Perifericos">Periféricos</Link>
       </ul>
       <CartWidget />
     </div>
