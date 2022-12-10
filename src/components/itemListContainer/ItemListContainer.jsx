@@ -45,7 +45,7 @@ const ItemListContainer = () => {
       
       <ItemList items={items} />
 
-      {/* <button onClick={createPost}>Crear post</button> */}
+      
       
     </div>
   )

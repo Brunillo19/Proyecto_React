@@ -10,7 +10,7 @@ const Item = ({element}) => {
       <img src={element.img} alt="" />
       <h3>${element.price}</h3>
       <ItemCount initial={1} stock={element.stock}/>
-      <Link to={`/itemDetail/${element.id}`}>Ver detalle</Link>
+      <Link to={`/item/${element.id}`}>Ver detalle</Link>
     </div>
   );
 };

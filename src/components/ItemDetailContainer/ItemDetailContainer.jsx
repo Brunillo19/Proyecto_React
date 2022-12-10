@@ -27,8 +27,8 @@ const ItemDetailContainer = () => {
       <div className='detailText'>
 
         <h2>{product.name}</h2>
-        <h2>${product.price}</h2>
-        <h2>{product.description}</h2>
+        <h3>${product.price}</h3>
+        <h5>{product.description}</h5>
         <ItemCount initial={1} stock={product.stock}/><p className='stock'>(Disponibilidad en stock: {product.stock})</p>
       </div>
     </div>
