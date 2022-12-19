@@ -15,7 +15,7 @@ export const products = [
         price: 14500,
         stock: 5,
         description: "Este monitor de 22 pulgadas te va a resultar cómodo para estudiar trabajar o ver una película en tus tiempos de ocio.",
-        category: "Pantalla",
+        category: "Pantallas",
         img: "https://res.cloudinary.com/dfbuxinmw/image/upload/c_scale,w_400/v1670693774/00406004-177456-177456-01.png-177456-01_o7ew9c.png"
     },
     {
