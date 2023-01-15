@@ -37,7 +37,7 @@
     text-align: center;
     text-decoration: none;
 }
-.navbar-item:hover{background-color: red;}
+.navbar-item:hover{color: red;}
 
 .container-cart{
     top: 25%;
