@@ -3,7 +3,7 @@ import { addDoc, collection, serverTimestamp, doc, updateDoc } from "firebase/fi
 import { db } from "../../firebaseConfig"
 
 const Form= ({cart,getTotalPrice, setOrderId,clearCart})=>{
-    const [userData,setUserData] =useState({name:"",lastName:""})
+    const [userData,setUserData] =useState({name:"",lastName:"",phone:"",email:""})
     const total=getTotalPrice()
 
 const handleSubmit=(event)=>{
@@ -15,12 +15,11 @@ const handleSubmit=(event)=>{
         total:total,
         date: serverTimestamp()
     }
+    console.log(order);
     
     const orderCollection = collection(db,"orders")
     addDoc(orderCollection,order)
     .then(res=>setOrderId(res.id))
-    /* const orderDoc = doc(db,"products",1)
-    updateDoc(orderDoc,{stock:2}) */
     cart.map(element=> {
         updateDoc(doc(db,"products",element.id),{stock:element.stock-element.quantity}) 
     })

@@ -23,6 +23,8 @@ else {
       const total= cart.reduce ((acc,element)=> {
         return acc+(element.price*element.quantity)},0)
       return total     }
+
+      
       const getTotalItem= ()=> {
         const numtotal=cart.reduce((acc,element)=>{
           return acc+element.quantity},0)

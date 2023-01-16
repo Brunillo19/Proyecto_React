@@ -3,7 +3,6 @@ import { useContext,useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import './Cart.css'
 import CartItem from "../cartItem/CartItem";
-import { db } from "../../firebaseConfig";
 import { Link } from "react-router-dom"
 import Swal from 'sweetalert2'
 import Form from "../form/Form";
@@ -11,7 +10,6 @@ const Cart = () => {
     const {cart,clearCart,setCart,getTotalPrice} = useContext(CartContext)
     const [buy,setBuy] = useState(false)
     const [orderId,setOrderId]=useState(null)
-    console.log(orderId);
     const limpiar =()=> {
       Swal.fire({
         title: "Está seguro de eliminar el carrito?",
@@ -33,15 +31,15 @@ const Cart = () => {
     }
 
 
-
-    if (orderId){
-      return <div>
-        <h2>{orderId}</h2>
-        <Link to={"/"}>Volver</Link>
-      </div>
-    }
+    
+        if (orderId){
+          return <div>
+            <h2>{orderId}</h2>
+            <Link to={"/"}>Volver</Link>
+          </div>
+        }
     if (cart.length<1) {
-        return <h2>No hay productos en el carrito</h2>
+      return <h2>No hay productos en el carrito</h2>
     }
     return (
         <div >
