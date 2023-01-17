@@ -13,7 +13,7 @@ return(
         <h2>${item.price}.-</h2>
         <h2>Unidades: {item.quantity}</h2>
       </div>
-      <Button onClick={()=>clearProduct(item.id)}>Quitar</Button>
+      <Button onPress={()=>clearProduct(item.id)}>Quitar</Button>
     </div>
 )
 }

@@ -12,7 +12,7 @@ const Counter = ({ stock, initial=0, onAdd }) => {
 
   const closeHandler = () => {
     setVisible(false);
-    console.log("closed");
+    
   };
   const [counter, setCounter] = useState(initial)
   useEffect(()=> {
@@ -34,9 +34,9 @@ const Counter = ({ stock, initial=0, onAdd }) => {
   return (
     <div className="CartCount">
 
-      <Button onClick={decrement} size='xs' >-</Button>
+      <Button onPress={decrement} size='xs' >-</Button>
       <h2>{counter}</h2>
-      <Button onClick={increment} size='xs'>+</Button>
+      <Button onPress={increment} size='xs'>+</Button>
     
       {/* <Button onClick={() => {
        
@@ -63,16 +63,16 @@ const Counter = ({ stock, initial=0, onAdd }) => {
             <Text  size={18}>
               Desea Ir al carrito?
             </Text>
-         <Link to="/">
           <Button auto flat color="error" onPress={closeHandler}>
+         <Link to="/">
             Seguir comprando
-          </Button>
          </Link>
-         <Link to="/cart">
+          </Button>
           <Button auto onPress={closeHandler}>
+         <Link to="/cart">
             ir al carrito
-          </Button>
          </Link>
+          </Button>
           
         </Modal.Body>
       </Modal>

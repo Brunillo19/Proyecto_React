@@ -9,7 +9,7 @@ import { CartIcon } from './CartIcon';
 export const CartWidget = () => {
   const {cart,getTotalItem} = useContext(CartContext)
     return (
-      <Link to="/cart">
+        <Link to="/cart">
       <div className="container-cart">
       <Badge
           color="error"
@@ -20,7 +20,7 @@ export const CartWidget = () => {
           <CartIcon fill="currentColor" size={30} />
         </Badge>
       </div>
-      
           </Link>
+      
     );
   };

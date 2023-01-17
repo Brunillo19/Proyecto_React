@@ -36,30 +36,30 @@ const Cart = () => {
         if (orderId){
           return <div>
             <h2>{orderId}</h2>
-            <Link to={"/"}>
-              <Button>Realizar otra compra</Button></Link>
+            
+              <Button><Link to={"/"}>Realizar otra compra</Link></Button>
           </div>
         }
     if (cart.length<1) {
       return <h2>No hay productos en el carrito</h2>
     }
     return (
-        <div className="cart-container">
-          <div className="container-items">
+        <div className="cartContainer">
+          <div className="containerItems">
             {cart.map((item) => (
               <CartItem key={item.id} item={item} />
             ))}
     
           </div>
               
-          <div className="cart-info">
+          <div className="cartInfo">
           <h3>Cantidad de productos: {getTotalItem()}</h3>
           <h3>Precio total: { getTotalPrice() > 0 ? getTotalPrice() : "No hay items"}</h3>   
             {buy?(<Form cart={cart} getTotalPrice={getTotalPrice} setOrderId={setOrderId} clearCart={clearCart}/>):(
           
             <div >
-              <Button onClick={()=>  setBuy(true)}>Comprar</Button>
-              <Button onClick={() => limpiar()} >
+              <Button onPress={()=>  setBuy(true)}>Comprar</Button>
+              <Button onPress={() => limpiar()} >
                 Vaciar carrito
               </Button>
             </div>

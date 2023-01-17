@@ -1,4 +1,4 @@
-import { Card, Col, Row, Button, Text, css } from "@nextui-org/react";
+import { Card, Col, Row, Button, Text } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
 const BottonText= {
@@ -40,21 +40,21 @@ export const Card4 = ({element}) => (
         </Col>
         <Col>
           <Row justify="flex-end">
-            <Link to={`/item/${element.id}`} >
 
                 <Button flat auto rounded color="secondary">
+            <Link to={`/item/${element.id}`} >
               <Text
                 css={{ color: "inherit" }}
                 size={12}
                 weight="bold"
                 transform="uppercase"
-                text-decoration="none"
+                textDecoration="none"
         
                 >
                 Ver detalle
               </Text>
+              </Link>
             </Button>
-                  </Link>
           </Row>
         </Col>
       </Row>
