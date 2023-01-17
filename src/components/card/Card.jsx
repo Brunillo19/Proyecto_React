@@ -8,7 +8,7 @@ export const Card4 = ({element}) => (
   <Card css={{ w: "70%", h: "350px" }}>
     <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
       <Col>
-        <Text h3 color="black">
+        <Text h3 color="gray">
           {element.name}
         </Text>
       </Col>
@@ -18,7 +18,6 @@ export const Card4 = ({element}) => (
         src={element.img}
         width="100%"
         height="100%"
-        objectFit="cover"
         alt={element.name}
       />
     </Card.Body>
@@ -41,7 +40,7 @@ export const Card4 = ({element}) => (
         </Col>
         <Col>
           <Row justify="flex-end">
-            <Link to={`/item/${element.id}`} text-decoration="none">
+            <Link to={`/item/${element.id}`} >
 
                 <Button flat auto rounded color="secondary">
               <Text

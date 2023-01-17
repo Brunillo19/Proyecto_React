@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { addDoc, collection, serverTimestamp, doc, updateDoc } from "firebase/firestore"
 import { db } from "../../firebaseConfig"
+import { Input,Button } from "@nextui-org/react"
+
 
 const Form= ({cart,getTotalPrice, setOrderId,clearCart})=>{
     const [userData,setUserData] =useState({name:"",lastName:"",phone:"",email:""})
@@ -15,7 +17,7 @@ const handleSubmit=(event)=>{
         total:total,
         date: serverTimestamp()
     }
-    console.log(order);
+    
     
     const orderCollection = collection(db,"orders")
     addDoc(orderCollection,order)
@@ -32,13 +34,46 @@ const handleSubmit=(event)=>{
 return(
     <div>
         <form action=""onSubmit={handleSubmit}>
-            <input type="text" 
-            placeholder="Ingrese su nombre"
+            <Input
+            underlined
+            color="primary"
+            labelPlaceholder="Ingrese su nombre"
             name="name"
             value={userData.name}
-            onChange={(event)=>setUserData ({...userData,name:event.target.value})}/>
+            onChange={(event)=>setUserData ({...userData,name:event.target.value})}
+            maxRows='1'
+            />
+            <Input
+            underlined
+            color="primary"
+            labelPlaceholder="Ingrese su apellido"
+            name="lastName"
+            value={userData.lastName}
+            onChange={(event)=>setUserData ({...userData,lastName:event.target.value})}
+            maxRows='1'
+            />
+            <Input
+            underlined
+            color="primary"
+            labelPlaceholder="Ingrese su telefono"
+            name="phone"
+            type="phone"
+            value={userData.phone}
+            onChange={(event)=>setUserData ({...userData,phone:event.target.value})}
+            maxRows='1'
+            />
+            <Input
+            underlined
+            color="primary"
+            labelPlaceholder="Ingrese su correo"
+            name="email"
+            type="email"
+            value={userData.email}
+            onChange={(event)=>setUserData ({...userData,email:event.target.value})}
+            maxRows='1'
+            />
 
-            <input type="text" 
+            {/* <input type="text" 
             placeholder="Ingrese su apellido"
             name="lastName"
             value={userData.lastName}
@@ -55,8 +90,8 @@ return(
             placeholder="Ingrese su correo"
             name="email"
             value={userData.email}
-            onChange={(event)=>setUserData ({...userData,email:event.target.value})}/>
-            <button type="submit">Finalizar compra</button>
+            onChange={(event)=>setUserData ({...userData,email:event.target.value})}/> */}
+            <Button type="submit">Finalizar compra</Button>
         </form>
     </div>
 )

@@ -60,6 +60,7 @@ const ItemListContainer = () => {
     <div className="light">
       
       {isLoading?<Triangle
+      display="flex"
   height="80"
   width="80"
   color="#4fa94d"

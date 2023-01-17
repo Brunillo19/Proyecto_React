@@ -5,12 +5,13 @@ import { useParams } from "react-router-dom"
 import ItemDetail from '../itemDetail/ItemDetail'
 import {getDoc,doc,collection} from "firebase/firestore"
 import { db } from '../../firebaseConfig'
+import { Triangle } from 'react-loader-spinner'
 
 const ItemDetailContainer = () => {
   
 
   const [product, setProduct] = useState({})
-
+  const [isLoading, setIsLoading] = useState([false])
   const { id } = useParams()
   
 
@@ -28,16 +29,25 @@ const ItemDetailContainer = () => {
         }
       )
     })
-
+    setTimeout(()=>{setIsLoading(false)},1200)
   }, [id])
 
   
 
   return (
     <div>
-      <ItemDetail product={product} />
+      
+      {isLoading?<Triangle
+    height="80"
+    width="80"
+    color="#4fa94d"
+    ariaLabel="triangle-loading"
+    wrapperStyle={{}}
+    wrapperClassName=""
+    visible={true}
+    css="justify-content=center"
+  />:<ItemDetail product={product}  />}
     </div>
-    
   )
 }
 

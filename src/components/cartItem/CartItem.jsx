@@ -1,3 +1,4 @@
+import { Button } from "@nextui-org/react";
 import React from "react";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
@@ -12,7 +13,7 @@ return(
         <h2>${item.price}.-</h2>
         <h2>Unidades: {item.quantity}</h2>
       </div>
-      <button onClick={()=>clearProduct(item.id)}>Quitar</button>
+      <Button onClick={()=>clearProduct(item.id)}>Quitar</Button>
     </div>
 )
 }

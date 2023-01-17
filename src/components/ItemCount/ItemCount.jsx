@@ -1,10 +1,19 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import './ItemCount.css'
-import Swal from 'sweetalert2'
-import { Link} from "react-router-dom"
 
-const Counter = ({ stock, initial=1, onAdd }) => {
+import { Button,Modal,Text } from "@nextui-org/react"
+import { Link } from "react-router-dom"
+
+
+const Counter = ({ stock, initial=0, onAdd }) => {
+  const [visible, setVisible] = useState(false);
+  const handler = () => setVisible(true);
+
+  const closeHandler = () => {
+    setVisible(false);
+    console.log("closed");
+  };
   const [counter, setCounter] = useState(initial)
   useEffect(()=> {
     setCounter(initial)
@@ -16,7 +25,7 @@ const Counter = ({ stock, initial=1, onAdd }) => {
   }
 
   const decrement = () => {
-    if (counter > 1) {
+    if (counter > 0) {
       setCounter(counter - 1)
     }
   }
@@ -25,28 +34,50 @@ const Counter = ({ stock, initial=1, onAdd }) => {
   return (
     <div className="CartCount">
 
-      <button onClick={decrement} >-</button>
+      <Button onClick={decrement} size='xs' >-</Button>
       <h2>{counter}</h2>
-      <button onClick={increment} >+</button>
+      <Button onClick={increment} size='xs'>+</Button>
     
-      <button onClick={() => {
-       Swal.fire({
-        title: 'Producto agregado con éxito',
-        text:'Desea ir al carrito?',
-        showDenyButton: true,
-        confirmButtonText: 'Seguir Comprando',
-        denyButtonText: `Ir al carrito`,
-        position: 'top-end',
-        icon: 'success',
-        timer: 3000
-      }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-
-        if (result.isDenied) {         
-        }
+      {/* <Button onClick={() => {
+       
+        onAdd(counter)}} disabled={stock===0 || counter===0} >Agregar al carrito</Button> */}
+        <div>
+      <Button auto shadow onPress={handler} onClick={() => {
+       
+       onAdd(counter)}} disabled={stock===0 || counter===0} >
+        Agregar al carrito
+      </Button>
+      <Modal
+        closeButton
+        aria-labelledby="modal-title"
+        open={visible}
         
-      })
-        onAdd(counter)}} disabled={stock===0 || initial===0}>Agregar al carrito</button>
+      >
+        <Modal.Header>
+          <Text b id="modal-title" size={18}>
+            Producto agregado al carrito!
+          </Text>
+        </Modal.Header>
+        <Modal.Body>
+          
+            <Text  size={18}>
+              Desea Ir al carrito?
+            </Text>
+         <Link to="/">
+          <Button auto flat color="error" onPress={closeHandler}>
+            Seguir comprando
+          </Button>
+         </Link>
+         <Link to="/cart">
+          <Button auto onPress={closeHandler}>
+            ir al carrito
+          </Button>
+         </Link>
+          
+        </Modal.Body>
+      </Modal>
+    </div>
+  
     </div>
   )
 }
